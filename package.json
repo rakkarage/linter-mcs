@@ -1,0 +1,17 @@
+{
+  "name": "linter-unity",
+  "linter-package": true,
+  "activationEvents": [],
+  "main": "./lib/init",
+  "version": "0.0.1",
+  "description": "Show Unity messages.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtomLinter/linter-unity"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}
