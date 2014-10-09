@@ -2,17 +2,20 @@ linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
 class LinterUnity extends Linter
   @syntax: 'source.cs'
-  cmd: 'mcs -target:library -r:"C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll","C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll","C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll","D:/code/UnDeko/Library/ScriptAssemblies/Assembly-CSharp.dll"'
+  cmd: 'mcs.exe -target:library -r:D:/lib/UnityEditor.dll,D:/lib/UnityEngine.dll,D:/lib/UnityEngine.UI.dll,D:/code/UnDeko/Library/ScriptAssemblies/Assembly-CSharp.dll'
   linterName: 'unity'
   regex:
     '^' +
-    '(?<filename>.+\\.cs)' +
+    '(.+\\.cs)' +
     '\\(' +
     '(?<line>\\d+)' +
     ',' +
     '(?<col>\\d+)' +
-    '\\): ' +
+    '\\):\x40' +
     '(?<level>\\w+)' +
-    ' ' +
+    '\x40' +
     '(?<message>.+)'
+  errorStream: 'stderr'
+  constructor: (editor) ->
+    super(editor)
 module.exports = LinterUnity
