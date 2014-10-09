@@ -11,9 +11,9 @@ class LinterUnity extends Linter
     '(?<line>\\d+)' +
     ',' +
     '(?<col>\\d+)' +
-    '\\):\x40' +
+    '\\): ' +
     '(?<level>\\w+)' +
-    '\x40' +
+    ' ' +
     '(?<message>.+)'
   errorStream: 'stderr'
   constructor: (editor) ->
