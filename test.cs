@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace TestNamespace
 {
-	public class Test : MonoBehaviour
+	public class Test : MonoBehaviourXXX
 	{
 		private void Start()
 		{
