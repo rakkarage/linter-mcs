@@ -2,7 +2,7 @@ linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
 fs = require 'fs'
 class LinterUnity extends Linter
-  @syntax: 'source.cs'
+  @syntax: ['source.cs', 'source.js', 'source.boo']
   cmd: ''
   linterName: 'unity'
   regex:
