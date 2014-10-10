@@ -1,6 +1,6 @@
 linter-unity
 ===
-display [Unity] [csharp] error and warning messages in [Atom] using [linter]
+display [csharp] error and warning messages for [Unity] in [Atom] using [linter]
 
 - requires [csharp]
 - requires [Unity] & MonoDevelop installed
