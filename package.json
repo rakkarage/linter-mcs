@@ -7,7 +7,7 @@
   "description": "Show Unity messages.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AtomLinter/linter-unity"
+    "url": "https://github.com/rakkarage/linter-unity"
   },
   "license": "MIT",
   "engines": {

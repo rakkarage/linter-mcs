@@ -1,8 +1,8 @@
 module.exports =
   configDefaults:
-    unityEditor: 'C:/PROGRA~2/UNITY/EDITOR/DATA/MANAGED/UNITYE~2.DLL'
-    unityEngine: 'C:/PROGRA~2/UNITY/EDITOR/DATA/MANAGED/UNITYE~3.DLL'
-    unityEngineUI: 'C:/PROGRA~2/UNITY/EDITOR/DATA/UNITYE~1/UNITY/GUISYSTEM/4.6.0/UNITYE~1.DLL'
-    unityProject: ''
+    unityEditor: "C:\\Program Files (x86)\\Unity\\Editor\\Data\\Managed\\UnityEditor.dll"
+    unityEngine: "C:\\Program Files (x86)\\Unity\\Editor\\Data\\Managed\\UnityEngine.dll"
+    unityEngineUI: "C:\\Program Files (x86)\\Unity\\Editor\\Data\\UnityExtensions\\Unity\\GUISystem\\4.6.0\\UnityEngine.UI.dll"
+    unityOther: ''
   activate: ->
     console.log 'activate linter-unity'
