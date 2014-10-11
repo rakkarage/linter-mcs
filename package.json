@@ -4,7 +4,7 @@
   "activationEvents": [],
   "main": "./lib/init",
   "version": "0.0.1",
-  "description": "show c# errors and warnings",
+  "description": "display unity c# errors and warnings using mcs.exe",
   "repository": {
     "type": "git",
     "url": "https://github.com/rakkarage/linter-mcs"

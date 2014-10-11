@@ -1,3 +1,3 @@
 linter-mcs
 ===
-display c# errors and warnings using mcs.exe
+display unity c# errors and warnings using mcs.exe
