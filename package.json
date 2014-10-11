@@ -1,13 +1,13 @@
 {
-  "name": "linter-unity",
+  "name": "linter-mcs",
   "linter-package": true,
   "activationEvents": [],
   "main": "./lib/init",
   "version": "0.0.1",
-  "description": "Show Unity messages.",
+  "description": "show c# errors and warnings",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rakkarage/linter-unity"
+    "url": "https://github.com/rakkarage/linter-mcs"
   },
   "license": "MIT",
   "engines": {
