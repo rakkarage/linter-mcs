@@ -1,4 +1,3 @@
-path = require 'path'
 module.exports =
   configDefaults:
     unityEditor: "C:\\Program Files (x86)\\Unity\\Editor\\Data\\Managed\\UnityEditor.dll"
