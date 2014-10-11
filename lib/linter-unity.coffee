@@ -1,5 +1,6 @@
 linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
+path = require 'path'
 fs = require 'fs'
 class LinterUnity extends Linter
   @syntax: ['source.cs', 'source.js', 'source.boo']
@@ -7,14 +8,16 @@ class LinterUnity extends Linter
   linterName: 'unity'
   regex:
     '^' +
-    '(.+\\.cs)' +
+    '(?<filename>.+\\.cs)' +
     '\\(' +
     '(?<line>\\d+)' +
     ',' +
     '(?<col>\\d+)' +
     '\\): ' +
-    '(?<level>\\w+)' +
+    '((?<error>error)|(?<warning>warning))' +
     ' ' +
+    '(?<code>\\w+)' +
+    ': ' +
     '(?<message>.+)'
   errorStream: 'stderr'
   constructor: (editor) ->
@@ -42,6 +45,10 @@ class LinterUnity extends Linter
     if fs.existsSync "#{unityEngineUI}"
       @add += "#{unityEngineUI},"
     if fs.existsSync "#{unityOther}"
-      @add += "#{unityOther}"
+      @add += "#{unityOther},"
+    if atom.project
+      unityProject = path.join atom.project.getPath(), 'Library', 'ScriptAssemblies', 'Assembly-CSharp.dll'
+      if fs.existsSync "#{unityProject}"
+        @add += "#{unityProject}"
     @cmd = ["mcs", "-target:library", @add]
 module.exports = LinterUnity
