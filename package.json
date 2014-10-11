@@ -3,7 +3,7 @@
   "linter-package": true,
   "activationEvents": [],
   "main": "./lib/init",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "display unity c# errors and warnings using mcs.exe",
   "repository": {
     "type": "git",
