@@ -4,8 +4,8 @@ path = require 'path'
 fs = require 'fs'
 class LinterMCS extends Linter
   @syntax: 'source.cs'
-  cmd: ''
   linterName: 'mcs'
+  errorStream: 'stderr'
   regex:
     '^' +
     '(?<filename>.+\\.cs)' +
@@ -19,7 +19,6 @@ class LinterMCS extends Linter
     '(?<code>\\w+)' +
     ': ' +
     '(?<message>.+)'
-  errorStream: 'stderr'
   constructor: (editor) ->
     super(editor)
     atom.config.observe 'linter-mcs.additional0', @formatShellCmd
