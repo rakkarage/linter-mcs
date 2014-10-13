@@ -7,7 +7,7 @@
   "description": "display unity c# errors and warnings using mcs.exe",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rakkarage/linter-mcs"
+    "url": "https://github.com/AtomLinter/linter-mcs"
   },
   "license": "MIT",
   "engines": {
