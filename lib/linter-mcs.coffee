@@ -21,31 +21,36 @@ class LinterMCS extends Linter
     '(?<message>.+)'
   constructor: (editor) ->
     super(editor)
-    atom.config.observe 'linter-mcs.additional0', @formatShellCmd
-    atom.config.observe 'linter-mcs.additional1', @formatShellCmd
-    atom.config.observe 'linter-mcs.additional2', @formatShellCmd
-    atom.config.observe 'linter-mcs.additional3', @formatShellCmd
+    atom.config.observe 'linter-mcs.additionalCore', @formatShellCmd
+    atom.config.observe 'linter-mcs.additionalEditor', @formatShellCmd
+    atom.config.observe 'linter-mcs.additionalEngine', @formatShellCmd
+    atom.config.observe 'linter-mcs.additionalUI', @formatShellCmd
+    atom.config.observe 'linter-mcs.additional', @formatShellCmd
     @formatShellCmd()
   destroy: ->
-    atom.config.unobserve 'linter-mcs.additional0'
-    atom.config.unobserve 'linter-mcs.additional1'
-    atom.config.unobserve 'linter-mcs.additional2'
-    atom.config.unobserve 'linter-mcs.additional3'
+    atom.config.unobserve 'linter-mcs.additionalCore'
+    atom.config.unobserve 'linter-mcs.additionalEditor'
+    atom.config.unobserve 'linter-mcs.additionalEngine'
+    atom.config.unobserve 'linter-mcs.additionalUI'
+    atom.config.unobserve 'linter-mcs.additional'
   formatShellCmd: =>
-    additional0 = atom.config.get 'linter-mcs.additional0'
-    additional1 = atom.config.get 'linter-mcs.additional1'
-    additional2 = atom.config.get 'linter-mcs.additional2'
-    additional3 = atom.config.get 'linter-mcs.additional3'
+    additionalCore = atom.config.get 'linter-mcs.additionalCore'
+    additionalEditor = atom.config.get 'linter-mcs.additionalEditor'
+    additionalEngine = atom.config.get 'linter-mcs.additionalEngine'
+    additionalUI = atom.config.get 'linter-mcs.additionalUI'
+    additional = atom.config.get 'linter-mcs.additional'
     @add = '-r:'
-    if fs.existsSync "#{additional0}"
-      @add += "#{additional0},"
-    if fs.existsSync "#{additional1}"
-      @add += "#{additional1},"
-    if fs.existsSync "#{additional2}"
-      @add += "#{additional2},"
+    if fs.existsSync "#{additionalCore}"
+      @add += "#{additionalCore},"
+    if fs.existsSync "#{additionalEditor}"
+      @add += "#{additionalEditor},"
+    if fs.existsSync "#{additionalEngine}"
+      @add += "#{additionalEngine},"
+    if fs.existsSync "#{additionalUI}"
+      @add += "#{additionalUI},"
     if atom.project
-      additional3 = path.join atom.project.getPath(), 'Library', 'ScriptAssemblies', 'Assembly-CSharp.dll'
-      if fs.existsSync "#{additional3}"
-        @add += "#{additional3}"
+      additional = path.join atom.project.getPath(), 'Library', 'ScriptAssemblies', 'Assembly-CSharp.dll'
+      if fs.existsSync "#{additional}"
+        @add += "#{additional}"
     @cmd = ["mcs", "-target:library", @add]
 module.exports = LinterMCS
